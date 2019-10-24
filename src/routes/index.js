@@ -10,8 +10,8 @@ class RootRouter extends Component {
         return (
             <Router history={history}>
                 <Switch>
-                    <Route exact path="/" component={App} />
-                    <Route path="/user" component={UserList} />
+                    <Route exact path="/" component={UserList} />
+                    <Route path="/user" component={App} />
                     <Redirect from="" to="/notFound" />
                 </Switch>
             </Router>

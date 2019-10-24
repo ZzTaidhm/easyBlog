@@ -12,6 +12,7 @@
     "react": "^16.10.2",
     "react-app-rewired": "^2.1.3",
     "react-dom": "^16.10.2",
+    "react-exif-orientation-img": "^0.1.5",
     "react-rewire-css-modules": "^1.1.11",
     "react-rewire-less": "^1.1.11",
     "react-rewired-scripts": "^1.1.15",
@@ -38,6 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://127.0.0.1:3003"
+  }
 }
