@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Table, Input, Form, Button } from "antd";
 import ExifOrientationImg from 'react-exif-orientation-img'
+import io from 'socket.io-client';
 
 class UserList extends Component {
     constructor(props){
@@ -13,6 +14,14 @@ class UserList extends Component {
     }
 
     componentDidMount() {
+        // socket.io
+        const socket = io('ws://localhost:3008/');
+        socket.on('receiveMsg', data => {
+            console.log('服务端消息：',  data);
+        })
+
+        socket.emit('send', 'hello dinghuamin');
+
         // 获取用户列表
         axios.get('api/v1/article/query')
             .then(res => {
@@ -32,37 +41,7 @@ class UserList extends Component {
             .catch(err => {
                 console.log(err);
             })
-        // 判断浏览器是否支持websocket
-        let createWebsocket = (function () {
-            return function (urlValue) {
-                if(window.WebSocket) return new WebSocket(urlValue);
-                return false;
-            }
-        })();
-         // 实例化websocket  websocket有两种协议 ws:不加密 wss: 加密
-        let webSocket = createWebsocket("ws://localhost:3008/");
 
-        webSocket.onopen = function(evt){
-            console.log("开始连接...", webSocket.readyState)
-            if(webSocket.readyState === 1){
-                console.log("连接成功...");
-                webSocket.send("第一条数据");
-
-            }
-            // 一旦连接成功 就发送第一条数据
-        }
-        webSocket.onmessage = function (evt) {
-            // 这是服务端返回的数据
-            console.log("服务端说"+evt.data);
-        }
-        // 关闭连接
-        // webSocket.onclose = function(evt){
-        //     console.log("connection closed");
-        // }
-
-        setInterval(() => {
-            webSocket.onopen("dinghuamin");
-        }, 2000)
     }
 
     handleSubmit = (e) => {

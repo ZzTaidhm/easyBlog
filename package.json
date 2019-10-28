@@ -17,7 +17,8 @@
     "react-rewire-less": "^1.1.11",
     "react-rewired-scripts": "^1.1.15",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "socket.io-client": "^2.3.0"
   },
   "scripts": {
     "start": "set PORT=3001 && concurrently \"react-app-rewired start\" \"cd server && yarn start\"",
