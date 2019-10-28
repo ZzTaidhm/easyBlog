@@ -1,3 +1,4 @@
+// 重写webpack.config配置
 const {
     override,
     fixBabelImports,
@@ -9,6 +10,9 @@ const {
 const devServerConfig = () => config => {
     return {
         ...config,
+        headers: {
+            Upgrade: "WebSocket"
+        },
         proxy: [{
             context: ["/api/v1"],
             target: "http://localhost:3008",

@@ -1,3 +1,4 @@
+// 这个server 基本没用了  已经搭了一个webBackend了
 const express = require('express');
 const bodyParser = require('body-parser');
 // const mongoose = require('./db/config/mongoose');
