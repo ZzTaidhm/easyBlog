@@ -1,3 +1,8 @@
+# 项目介绍
+### customize-cra 重写webpack配置
+### server文件夹：1、mogonDB  2、mysql （都不用了，后端迁移到easyBlogBackend）
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
