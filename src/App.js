@@ -1,13 +1,10 @@
 import React from 'react';
+import Pages from './containers'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          丁华敏的Blog
-        </p>
-      </header>
+      <Pages />
     </div>
   );
 }
