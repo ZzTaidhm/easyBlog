@@ -42,6 +42,7 @@ class ChatRoom extends Component {
     handleSubmit1 = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
+            if (!values.content1) return false;
             if(!err){
                 this.socket.emit('chatMsg', {roleName: "Peppa", content: values.content1});
                 this.props.form.resetFields("content1");
@@ -52,6 +53,7 @@ class ChatRoom extends Component {
     handleSubmit2 = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
+            if (!values.content2) return false;
             if(!err){
                 this.socket.emit('chatMsg', {roleName: "George", content: values.content2});
                 this.props.form.resetFields("content2");
@@ -62,7 +64,7 @@ class ChatRoom extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <div style={{marginTop: 100}}>
+            <div style={{margin: "100px"}}>
                 {/*<h1 style={{ textAlign: 'center' }}>聊天室</h1>*/}
                 <Row gutter={40}>
                     <Col span={7}>
@@ -79,6 +81,7 @@ class ChatRoom extends Component {
                     </Col>
                     <Col span={10}>
                         <List
+                            style={{height: 500, overflow: 'auto'}}
                             header="消息窗口"
                             itemLayout="horizontal"
                             bordered={true}
