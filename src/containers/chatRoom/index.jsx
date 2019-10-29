@@ -10,38 +10,51 @@ class ChatRoom extends Component {
         super(props);
         this.state = {
             chatData: [
-                {
-                    roleName: 'George',
-                    msg: '你好，我是乔治',
-                },
-                {
-                    roleName: 'Peppa',
-                    msg: '你好，我是佩奇',
-                },
             ]
         }
+        this.socket = null;
+        this.preProtocol = "ws://localhost:3008";
     }
 
     componentDidMount() {
         // socket.io
-        const socket = io('ws://localhost:3008/');
-        socket.on('receiveMsg', data => {
-            console.log('服务端消息：',  data);
-        })
-
-        socket.emit('send', 'hello dinghuamin');
-
+        const socket = io(`${this.preProtocol}/chatLine`);
+        this.socket = socket;
+        // 接收消息
+        // socket.on方法的回调放在click里面 就会导致了反复注册该事件 形成叠加，
+        // 导致自己的接收不断重复，其实回调是个单独体，遇到重复了
+        // 把socket.on方法放在click包含体之外就可以了
+        this.socket.on("receiveMsg", data => {
+            this.setState(prevState => ({
+                chatData: prevState.chatData.concat(data)
+            }))
+        });
     }
 
-    handleSubmit = (e) => {
+    send1 = (e) => {
+        this.handleSubmit1(e);
+    }
+
+    send2 = (e) => {
+        this.handleSubmit2(e);
+    }
+
+    handleSubmit1 = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if(!err){
-                axios.post('api/v1/chatLine', {
-                    content: values.content
-                }).then(res => {
-                    console.log(res);
-                })
+                this.socket.emit('chatMsg', {roleName: "Peppa", content: values.content1});
+                this.props.form.resetFields("content1");
+            }
+        })
+    }
+
+    handleSubmit2 = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if(!err){
+                this.socket.emit('chatMsg', {roleName: "George", content: values.content2});
+                this.props.form.resetFields("content2");
             }
         })
     }
@@ -54,17 +67,14 @@ class ChatRoom extends Component {
                 <Row gutter={40}>
                     <Col span={7}>
                         <h2 style={{textAlign: 'center'}}>我是佩奇</h2>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form onSubmit={this.handleSubmit1}>
                             <Form.Item>
-                                {getFieldDecorator('content', {
-                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                {getFieldDecorator('content1', {
                                 })(
                                     <TextArea rows={4} placeholder="请聊天"/>,
                                 )}
                             </Form.Item>
-                            <Form.Item style={{textAlign: 'right'}}>
-                                <Button type="primary" htmlType="submit">发送</Button>
-                            </Form.Item>
+                            <Button type="primary" onClick={(e) => this.send1(e)}>发送</Button>
                         </Form>
                     </Col>
                     <Col span={10}>
@@ -77,9 +87,9 @@ class ChatRoom extends Component {
                                 <List.Item>
                                     <List.Item.Meta
                                         avatar={<Avatar src={item.roleName === "George" ? require("../../../src/assets/image/jio.jpg") : require("../../../src/assets/image/pei.jpeg")} />}
-                                        title={<h5 style={{color: item.roleName === "George" ? 'green' : 'pink'}}>{item.roleName}</h5>}
+                                        title={<p style={{color: item.roleName === "George" ? 'green' : 'pink'}}>{item.roleName}</p>}
                                         description={
-                                            <p style={{color: item.roleName === "George" ? 'green' : 'pink'}}>{item.msg}</p>
+                                            <p style={{color: item.roleName === "George" ? 'green' : 'pink'}}>{item.content}</p>
                                         }
                                     />
                                 </List.Item>
@@ -88,17 +98,14 @@ class ChatRoom extends Component {
                     </Col>
                     <Col span={7}>
                         <h2 style={{textAlign: 'center'}}>我是乔治</h2>
-                        <Form onSubmit={this.handleSubmit}>
+                        <Form onSubmit={this.handleSubmit2}>
                             <Form.Item>
-                                {getFieldDecorator('content', {
-                                    rules: [{ required: true, message: 'Please input your username!' }],
+                                {getFieldDecorator('content2', {
                                 })(
                                     <TextArea rows={4} placeholder="请聊天"/>,
                                 )}
                             </Form.Item>
-                            <Form.Item style={{textAlign: 'right'}}>
-                                <Button type="primary" htmlType="submit">发送</Button>
-                            </Form.Item>
+                            <Button type="primary" onClick={(e) => this.send2(e)}>发送</Button>
                         </Form>
                     </Col>
                 </Row>

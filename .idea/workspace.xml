@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09114eea-58a0-4fe2-9fb2-ffabe4c2b02c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/image/jio.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/image/pei.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/chatRoom/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/chatRoom/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/chatRoom/index.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -90,10 +84,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/chatRoom/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="75" column="49" lean-forward="true" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
+            <state relative-caret-position="253">
+              <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#2314#3280#0" />
               </folding>
             </state>
           </provider>
@@ -136,6 +131,8 @@
       <find>websocket</find>
       <find>createWebsocket</find>
       <find>componentWillReceiveProps</find>
+      <find>content1</find>
+      <find>content2</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -176,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/containers/index.js" />
         <option value="$PROJECT_DIR$/src/routes/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/chatRoom/index.jsx" />
         <option value="$PROJECT_DIR$/src/containers/chatRoom/index.scss" />
+        <option value="$PROJECT_DIR$/src/containers/chatRoom/index.jsx" />
       </list>
     </option>
   </component>
@@ -275,12 +272,12 @@
       <workItem from="1571722756155" duration="11837000" />
       <workItem from="1571822204019" duration="23694000" />
       <workItem from="1571967028290" duration="14054000" />
-      <workItem from="1572227981457" duration="22427000" />
+      <workItem from="1572227981457" duration="28927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100381000" />
+    <option name="totallyTimeSpent" value="106881000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -295,7 +292,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.110303834" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08454426" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -308,7 +305,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="8" weight="0.45184135" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.08640227" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.4305949" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.37393767" />
       <window_info anchor="bottom" id="Messages" order="12" />
@@ -655,10 +652,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/chatRoom/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="75" column="49" lean-forward="true" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
+        <state relative-caret-position="253">
+          <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#2314#3280#0" />
           </folding>
         </state>
       </provider>
