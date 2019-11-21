@@ -13,13 +13,14 @@ class ChatRoom extends Component {
             ]
         }
         this.socket = null;
-        this.preProtocol = "ws://localhost:3008";
+        this.preProtocol = "ws://10.50.11.71:3008";
     }
 
     componentDidMount() {
         // socket.io
-        const socket = io(`${this.preProtocol}/chatLine`);
-        this.socket = socket;
+        this.socket = io(`${this.preProtocol}/chatLine`, {
+            query: { chatRoom: 'chatRoom' }
+        });
         // 接收消息
         // socket.on方法的回调放在click里面 就会导致了反复注册该事件 形成叠加，
         // 导致自己的接收不断重复，其实回调是个单独体，遇到重复了
@@ -73,7 +74,7 @@ class ChatRoom extends Component {
                             <Form.Item>
                                 {getFieldDecorator('content1', {
                                 })(
-                                    <TextArea rows={4} placeholder="请聊天"/>,
+                                    <TextArea rows={4} placeholder="请聊天" onPressEnter={(e) => this.send1(e)}/>,
                                 )}
                             </Form.Item>
                             <Button type="primary" onClick={(e) => this.send1(e)}>发送</Button>
@@ -105,7 +106,7 @@ class ChatRoom extends Component {
                             <Form.Item>
                                 {getFieldDecorator('content2', {
                                 })(
-                                    <TextArea rows={4} placeholder="请聊天"/>,
+                                    <TextArea rows={4} placeholder="请聊天" onPressEnter={(e) => this.send2(e)}/>,
                                 )}
                             </Form.Item>
                             <Button type="primary" onClick={(e) => this.send2(e)}>发送</Button>

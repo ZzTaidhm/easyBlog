@@ -15,7 +15,7 @@ const devServerConfig = () => config => {
         },
         proxy: [{
             context: ["/api/v1"],
-            target: "http://localhost:3008",
+            target: "http://10.50.11.71:3008",
             changeOrigin: true,
             ws: false,
             secure: false,

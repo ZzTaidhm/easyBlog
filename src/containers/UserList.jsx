@@ -78,7 +78,7 @@ class UserList extends Component {
         const { getFieldDecorator } = this.props.form;
         return (
             <div>
-                <h1 style={{ textAlign: 'center' }}>用户列表页</h1>
+                {/*<h1 style={{ textAlign: 'center' }}>用户列表页</h1>*/}
                 <div style={{ width: '50%', margin: '10px auto' }}>
                     <Table dataSource={this.state.list} columns={columns} rowKey={record => record.id} />
                 </div>
@@ -96,20 +96,8 @@ class UserList extends Component {
                 {/*<img src={require("../../src/assets/image/5.jpg")} width={200} />*/}
                 {/*<ExifOrientationImg src={require("../../src/assets/image/6.jpg")} width={200} />*/}
                 {/*<img src={require("../../src/assets/image/6.jpg")} width={200} />*/}
-                <ExifOrientationImg src={require("../../src/assets/image/7.jpg")} width={200} />
+                {/*<ExifOrientationImg src={require("../../src/assets/image/7.jpg")} width={200} />*/}
                 {/*<img src={require("../../src/assets/image/7.jpg")} width={200} />*/}
-                <Form layout="inline" onSubmit={this.handleSubmit}>
-                    <Form.Item>
-                        {getFieldDecorator('content', {
-                            rules: [{ required: true, message: 'Please input your username!' }],
-                        })(
-                            <Input placeholder="请聊天"/>,
-                        )}
-                    </Form.Item>
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit">发送</Button>
-                    </Form.Item>
-                </Form>
             </div>
         )
     }
